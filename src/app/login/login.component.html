@@ -1,0 +1,112 @@
+<div class="container my-5">
+  <div class="row">
+    <!-- Left Column: Invoice Information -->
+    <div class="col-md-6 mainBodyPayment">
+      <div class="image-container">
+        <img
+          src="https://sensipleo365-my.sharepoint.com/personal/govindaraj_sundarraj_sensiple_com/Documents/fsdp0hvd.png?Web=1"
+          alt="Background Image"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+
+    <!-- Right Column: Payment Information -->
+    <div class="col-md-6 mainBodyInvoice">
+      <div class="login-container">
+        <h2>Get Started...</h2>
+        <form id="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="email" class="sr-only">UserName</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"
+                  ><i class="fas fa-envelope"></i
+                ></span>
+              </div>
+              <input
+                type="userName"
+                id="userName"
+                class="form-control"
+                placeholder="User Name"
+                formControlName="username"
+                [ngClass]="{ 'is-invalid': f['username'].touched && f['username'].errors }"
+              />
+
+              @if (f['username'].errors) {
+              <div class="invalid-feedback">
+                @if (f['username'].errors['required']) {
+                <div class="validate-name">*User Name is required</div>
+                }
+              </div>
+              }
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="sr-only">Password</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"
+                  ><i class="fas fa-lock"></i
+                ></span>
+              </div>
+              <input
+              type="password"
+              placeholder="Password"
+              formControlName="password"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': f['password'].touched && f['password'].errors }"
+              />
+              @if (f['password'].errors) {
+                <div class="invalid-feedback">
+                  @if (f['password'].errors['required']) {
+                  <div class="validate-name">*Password is required</div>
+                  } @if (f['password'].errors['minlength']) {
+                  <div class="validate-password">*Password must be at least 6 characters</div>
+                  } 
+                  <!-- @if (f['password'].errors['pattern'] && !f['password'].errors['minlength']) {
+                  <div class="validate-name">*Password contains atleast one Uppercase Lowercase Number and Special characters</div>
+                  } -->
+                </div>
+                }
+            </div>
+          </div>
+          <div *ngIf="this.alert">
+            <div class="validate-name">*User Name or Password is incorrect</div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-dark sign-in-button"
+            [disabled]="!this.form.valid"
+          >
+            Sign In
+          </button>
+          <a href="#" class="forgot-password">Forgot password?</a>
+        </form>
+        <p class="continue-text">or <strong>Continue</strong> with</p>
+        <div class="social-login">
+          <div class="icon-box">
+            <img
+              src="https://img.icons8.com/color/48/000000/google-logo.png"
+              alt="Google"
+            />
+          </div>
+          <div class="icon-box">
+            <img src="https://img.icons8.com/fluency/48/meta.png" alt="Meta" />
+          </div>
+          <div class="icon-box">
+            <img
+              src="https://img.icons8.com/color/48/000000/twitter--v1.png"
+              alt="Twitter"
+            />
+          </div>
+        </div>
+        <p class="signup">Don't have an account yet? <a href="#">Sign Up</a></p>
+        <p class="terms">
+          By clicking the button above, you agree to our
+          <a href="#">Terms</a> and <a href="#">Privacy</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

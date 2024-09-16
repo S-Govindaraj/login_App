@@ -1,0 +1,184 @@
+html,
+body {
+    background-color: black;
+    color: black
+}
+
+.container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    box-sizing: border-box;
+    /* background: rgba(0, 0, 0, 0.5); */
+}
+.mainBodyPayment {
+    flex: 1;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    max-width: 50%;
+    /* background: rgba(211, 211, 211, 0.8); Same grey color */
+    background-color: white;
+}
+
+.mainBodyInvoice {
+    flex: 1;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    max-width: 50%;
+    padding-top: 10px;
+    /* background: rgba(211, 211, 211, 0.8); Same grey color */
+    background-color: white;
+}
+.image-container {
+    flex: 0.9; /* Adjust size relative to other flex items */
+    overflow: hidden; /* Hide any overflow from the image */
+    position: relative; /* Necessary for absolutely positioning the image inside */
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    /* background: rgba(211, 211, 211, 0.8); Same grey color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-container img {
+    object-fit: cover;
+}
+.login-container {
+    flex: 0.8;
+    padding: 30px;
+    display: flex;
+    font-weight: bolder;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    /* background: rgba(211, 211, 211, 0.8); Same grey color */
+    border-radius: 0; /* Sharp corners */
+    /* box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); */
+    font-family: 'Tangerine', cursive; /* Apply Tangerine font-family */
+}
+.validate-name {
+    padding-left: 10px;
+    font-size: 10px;
+    color: red;
+    text-align: start;
+    font-family: 'Times New Roman', Times, serif;
+}
+.sign-in-button {
+    width: 100%;
+    margin-top: 8px;
+    font-family: 'Times New Roman', Times, serif;   
+}
+.forgot-password {
+    margin-top: 8px;
+    display: block;
+    text-align: right;
+    font-size: 10px;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 15px; /* Add space below forgot password */
+    font-family: 'Times New Roman', Times, serif;   
+}
+.input-group {
+    font-family: 'Times New Roman', Times, serif;
+}
+input {
+    font-size: 12px;
+    /* position: fixed; */
+}
+input::placeholder {
+    font-family: 'Times New Roman', Times, serif;   
+    font-size: 12px; /* Adjust the size as needed */
+}
+.continue-text {
+    font-family: 'Moderustic', sans-serif;
+    font-size: 15px;
+    color: #222121;
+    margin-top: 20px; /* Add space above continue text */
+}
+.social-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 20px; /* Add space below the social icons */
+}
+
+.icon-box {
+    width: 45px;
+    height: 45px;
+    margin: 0 15px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.icon-box img {
+    width: 24px;
+    height: 24px;
+}
+
+.signup {
+    margin-top: 15px; /* Add space above the "Don't have an account yet?" text */
+    font-size: 10px;
+    font-family: 'Times New Roman', Times, serif;   
+}
+
+.signup a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.terms {
+    margin-top: -10px;
+    font-size: 15px;
+    color: #222121;
+    font-family: 'Tangerine', cursive; /* Apply Tangerine font-family */
+}
+
+.terms a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Tangerine', cursive; /* Apply Tangerine font-family */
+    text-decoration: underline;
+    margin-top: -10px;
+}
+
+.continue-text {
+    font-family: 'Moderustic', sans-serif;
+    font-size: 15px;
+    color: #222121;
+    margin-top: 20px; /* Add space above continue text */
+}
+
+.icon-box::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(69, 206, 216, 0.5), transparent);
+    transition: all 0.5s;
+}
+
+.icon-box:hover::before {
+    top: 100%;
+    left: 100%;
+}
+.validate-password {
+    padding-left: 10px;
+    font-size: 10px;
+    color: red;
+    text-align: start;
+    font-family: 'Times New Roman', Times, serif;
+}

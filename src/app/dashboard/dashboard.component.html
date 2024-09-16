@@ -1,0 +1,86 @@
+<body class="bg-light">
+  <header class="header bg-light d-flex align-items-center fixed-top">
+    <div class="header-logo ml-3">
+      <h3 class="mb-0">Sense Desk</h3>
+    </div>
+    <nav class="header-menu ml-auto d-flex align-items-center mr-3">
+      <a href="/" title="Profile" class="text-dark mx-2"
+        ><span class="material-icons">person</span></a
+      >
+      <a href="/" title="Settings" class="text-dark mx-2"
+        ><span class="material-icons">settings</span></a
+      >
+      <div href="#" title="Logout" class="text-dark mx-2 logout">
+        <span class="material-icons" (click)="openLogoutConfirmation()"
+          >logout</span
+        >
+      </div>
+      <div
+        *ngIf="showModal"
+      >
+      <div class="modal-overlay">
+        <div class="modal-content">
+          <div class="button-content">
+            <p>{{ message }}</p>
+            <button class="btn btn-primary me-2" (click)="onConfirm()">Yes</button>
+            <button class="btn btn-secondary" (click)="onCancel()">No</button>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+    </nav>
+  </header>
+
+  <aside class="sidebar fixed-top">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link text-dark ps-3 d-flex align-items-center" href="">
+          <i class="material-icons me-2">dashboard</i>Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link text-dark ps-3 d-flex align-items-center"
+          (click)="onUsersSubmit()"
+        ><i class="material-icons me-2">group</i>
+          Users
+      </a>
+      </li>
+    </ul>
+  </aside>
+
+  <main class="main-content p-3">
+    <h1 *ngIf="!mainContent">Welcome to Sense Desk</h1>
+    <div class="userList">
+      <h4 *ngIf="mainContent" class="text-start ms-4 mb-2">Resource List</h4>
+      <li class="row" *ngFor="let user of users">
+        <div class="userContainer">
+          <div class="userIconContainer">
+            <img
+              src="https://www.freeiconspng.com/uploads/blue-user-icon-32.jpg"
+              alt="Background Image"
+              class="img-fluid userIcon"
+            />
+          </div>
+          <div class="userDetails">
+            {{ user.username }} - {{ user.email }} - {{ user.city }}
+          </div>
+        </div>
+      </li>
+      
+      <div *ngIf="total > limit" class="pagination_section">
+        <button (click)="onPageChange(page - 1)" [disabled]="page === 1"><<</button>
+        <span class="navigaePage">{{ page }} of {{ pages }}</span>
+        <button (click)="onPageChange(page + 1)" [disabled]="page === pages">>></button>
+      </div>
+      <!-- <div class="pagination_section" *ngIf="total > limit">
+        <button (click)="onPageChange(page - 1)" [disabled]="page === 1"><< Previous</button>
+         <a href="#"><< Previous</a>
+        <a href="#">Next >></a> -->
+        <!-- <span class="navigaePage">{{ page }} of {{ pages }}</span>
+        <button (click)="onPageChange(page + 1)" [disabled]="page === pages"> >>Next</button>
+      </div> -->
+    </div>
+  </main>
+  
+</body>
